@@ -17,16 +17,20 @@ const Heading: React.FC<Props> = ({title, size}) => {
 
 const styles = StyleSheet.create({
   xl: {
-    fontSize: 32
+    fontSize: 32,
+    fontWeight: "700",
   },
   lg: {
-    fontSize: 28
+    fontSize: 28,
+    fontWeight: "700",
   },
   md: {
-    fontSize: 24
+    fontSize: 24,
+    fontWeight: "700",
   },
   sm: {
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: "700",
   }
 })
 
