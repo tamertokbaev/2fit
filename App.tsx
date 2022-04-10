@@ -1,14 +1,38 @@
+// @ts-nocheck
 import {NavigationContainer} from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from "./screens/HomeScreen";
-import RootStackNavigator from "./navigation/RootStackNavigator";
+import {Ionicons} from "@expo/vector-icons";
+import React from "react";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {theme} from "./constants/theme";
+import StatisticsScreen from "./screens/StatisticsScreen";
+import SettingsScreen from "./screens/SettingsScreen";
 
-const Stack = createNativeStackNavigator()
+
+const Tab = createBottomTabNavigator();
+
+const routeIcons = {
+  "Главная": 'home',
+  "Статистика": 'stats-chart',
+  "Настройки": 'settings'
+}
 
 const App = () => {
   return (
     <NavigationContainer>
-      <RootStackNavigator/>
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+          tabBarIcon: ({focused, color, size}) => {
+            return <Ionicons name={routeIcons[route.name]} size={size} color={color}/>;
+          },
+          tabBarActiveTintColor: theme.primaryColor,
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
+        <Tab.Screen name="Главная" component={HomeScreen}/>
+        <Tab.Screen name="Статистика" component={StatisticsScreen}/>
+        <Tab.Screen name="Настройки" component={SettingsScreen}/>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
