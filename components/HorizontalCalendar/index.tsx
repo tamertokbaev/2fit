@@ -12,13 +12,23 @@ const dateSubtractDays = (date: Date, numberOfDays: number) => {
   return result
 }
 
+const dateAddDays = (date: Date, numberOfDays: number) => {
+  const result = new Date(date)
+  result.setDate(result.getDate() + numberOfDays)
+  return result
+}
+
 const generateHorizontalCalendarDates = (daysToDisplay: number) => {
   const today = new Date()
   let result = []
   for(let i = 0; i < daysToDisplay; i ++){
     result[i] = dateSubtractDays(today, i)
   }
-  return result.reverse()
+  result = result.reverse()
+  for(let i = result.length; i < daysToDisplay * 2; i++) {
+    result[i] = dateAddDays(today, i)
+  }
+  return result
 }
 
 const HorizontalCalendar: React.FC<Props> = () => {
