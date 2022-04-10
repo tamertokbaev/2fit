@@ -7,8 +7,8 @@ const Stack = createNativeStackNavigator()
 const RootStackNavigator: React.FC = () => {
 
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen}/>
+    <Stack.Navigator initialRouteName="Мои тренировки">
+      <Stack.Screen name="Главная" component={HomeScreen}/>
     </Stack.Navigator>
   )
 }
