@@ -4,9 +4,15 @@ import Heading from "../components/Heading";
 import HorizontalCalendar from "../components/HorizontalCalendar";
 import {theme} from "../constants/theme";
 import MainLayout from "../components/MainLayout";
+import {NativeStackScreenProps} from "@react-navigation/native-stack";
 
+type Props = NativeStackScreenProps<any>
 
-const HomeScreen: React.FC = () => {
+const HomeScreen: React.FC<Props> = ({navigation}) => {
+
+  const openAddNewTrainingScreen = () => {
+    navigation.navigate("Добавить тренировку")
+  }
 
   return (
     <MainLayout>
@@ -14,7 +20,9 @@ const HomeScreen: React.FC = () => {
         <Heading
           size="lg"
           title="Мои тренировки"/>
-        <Pressable style={styles.addButton}>
+        <Pressable
+          onPress={openAddNewTrainingScreen}
+          style={styles.addButton}>
           <Text style={styles.addButtonText}>
             Добавить
           </Text>
