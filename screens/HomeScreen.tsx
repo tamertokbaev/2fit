@@ -3,12 +3,13 @@ import {View, Text, StyleSheet, Pressable} from "react-native";
 import Heading from "../components/Heading";
 import HorizontalCalendar from "../components/HorizontalCalendar";
 import {theme} from "../constants/theme";
+import MainLayout from "../components/MainLayout";
 
 
 const HomeScreen: React.FC = () => {
 
   return (
-    <View style={styles.root}>
+    <MainLayout>
       <View style={styles.title}>
         <Heading
           size="lg"
@@ -23,14 +24,11 @@ const HomeScreen: React.FC = () => {
       <View style={styles.calendar}>
         <HorizontalCalendar/>
       </View>
-    </View>
+    </MainLayout>
   )
 }
 
 const styles = StyleSheet.create({
-  root: {
-    padding: 15
-  },
   title: {
     justifyContent: "space-between",
     flexDirection: "row",
